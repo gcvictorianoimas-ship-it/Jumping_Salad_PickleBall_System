@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10151b">
+  <title> Jumping Salad Stacking System</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="login-screen" id="login-screen">
+    <section class="login-card" aria-labelledby="login-title">
+      <a class="brand login-brand" href="#dashboard" aria-label="Jumping Salad home">
+        <span class="brand-mark">S<span>+</span></span>
+        <span class="brand-copy"><strong>JUMPING SALAD</strong><small>ARCADE CLUB</small></span>
+      </a>
+      <p class="eyebrow">CLUB ADMINISTRATION</p>
+      <h1 id="login-title">Welcome back.</h1>
+      <p class="login-description">Sign in to open your club dashboard.</p>
+      <form id="login-form" class="login-form">
+        <label class="form-field">
+          <span>Username</span>
+          <input class="field" name="username" type="text" autocomplete="username" required autofocus>
+        </label>
+        <label class="form-field">
+          <span>Password</span>
+          <input class="field" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <p class="form-error" id="login-error" role="alert" hidden></p>
+        <button class="button login-submit" type="submit">SIGN IN <span>→</span></button>
+      </form>
+      <p class="login-demo-note">DEMO LOGIN · This prototype checks credentials in your browser only; it is not secure authentication.</p>
+    </section>
+  </main>
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Stackpoint home">
+        <span class="brand-mark">S<span>+</span></span>
+        <span class="brand-copy"><strong>JUMPING SALAD</strong><small>ARCADE CLUB</small></span>
+      </a>
+      <div class="club-status"><span class="live-dot"></span><span>LOCAL CLUB</span><span class="status-pill">DEMO</span></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <p class="nav-label">OPERATIONS</p>
+        <a href="#dashboard" data-view="dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+        <a href="#sessions" data-view="sessions"><span aria-hidden="true">◷</span> Sessions</a>
+        <a href="#queue" data-view="queue"><span aria-hidden="true">▤</span> Live Stacking</a>
+        <a href="#matches" data-view="matches"><span aria-hidden="true">⚔</span> Matches &amp; Scoring</a>
+        <a href="#courts" data-view="courts"><span aria-hidden="true">▥</span> Courts</a>
+
+        <p class="nav-label">PLAYER MANAGEMENT</p>
+        <a href="#register" data-view="register"><span aria-hidden="true">＋</span> Register Player</a>
+        <a href="#players" data-view="players"><span aria-hidden="true">♙</span> Players</a>
+
+        <p class="nav-label">LEADERBOARDS &amp; REPORTS</p>
+        <a href="#leaderboard" data-view="leaderboard"><span aria-hidden="true">♛</span> Leaderboards</a>
+        <a href="#statistics" data-view="statistics"><span aria-hidden="true">▧</span> Player Statistics</a>
+        <a href="#achievements" data-view="achievements"><span aria-hidden="true">✦</span> Achievements</a>
+
+        <p class="nav-label">HISTORY</p>
+        <a href="#match-history" data-view="match-history"><span aria-hidden="true">⌁</span> Match History</a>
+        <a href="#history" data-view="history"><span aria-hidden="true">↗</span> Queue History</a>
+
+        <p class="nav-label">CLUB MANAGEMENT</p>
+        <a href="#settings" data-view="settings"><span aria-hidden="true">⚙</span> Admin Settings</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note"><span class="note-icon">!</span><p><strong>Prototype mode</strong><br>Data stays in this browser only.</p></div>
+        <div class="user-chip"><span class="avatar avatar-small">🎾</span><span><strong>Club admin</strong><small>DEMO ACCESS</small></span><button class="user-menu" type="button" data-action="logout" aria-label="Sign out" title="Sign out">SIGN OUT</button></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <a class="skip-link" href="#app-content">Skip to main content</a>
+      <header class="topbar">
+        <button class="icon-button nav-toggle" id="menu-toggle" aria-label="Hide navigation" title="Hide navigation" aria-expanded="true">☰</button>
+        <div class="breadcrumb"><span>STACKPOINT</span><b>/</b><strong id="page-name">DASHBOARD</strong></div>
+        <div class="topbar-right"><span class="today" id="today-label"></span><button class="button button-small button-quiet" data-action="go-queue">OPEN STACK <span>↗</span></button></div>
+      </header>
+      <div class="content" id="app-content" tabindex="-1"></div>
+      <footer class="app-footer"><span>STACKPOINT ARCADE <b>·</b> PLAY. STACK. COMPETE. LEVEL UP.</span><span>LOCAL DEMO <i></i></span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <dialog class="modal" id="modal" aria-labelledby="modal-title">
+    <form method="dialog" class="modal-close-form"><button class="icon-button" aria-label="Close dialog">×</button></form>
+    <div id="modal-content"></div>
+  </dialog>
+</body>
+</html>
